@@ -1,1 +1,135 @@
 @import 'tailwindcss';
+
+/* Custom Health Theme Colors */
+@theme {
+  /* Light mode gradient colors */
+  --color-health-primary-light: #e3ef26;
+  --color-health-secondary-light: #076653;
+  --color-health-tertiary-light: #0c342c;
+
+  /* Dark mode gradient colors */
+  --color-health-primary-dark: #076653;
+  --color-health-secondary-dark: #0c342c;
+  --color-health-tertiary-dark: #06231d;
+}
+
+/* Global Styles */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Gradient Background Utilities */
+.gradient-light {
+  background: linear-gradient(to right, #e3ef26 0%, #076653 20%, #0c342c 80%, #e3ef26);
+}
+
+.gradient-dark {
+  background: linear-gradient(to right, #076653 0%, #0c342c, #06231d);
+}
+
+.gradient-light-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(227, 239, 38, 0.1) 0%,
+    rgba(7, 102, 83, 0.1) 50%,
+    rgba(12, 52, 44, 0.1) 100%
+  );
+}
+
+.gradient-dark-subtle {
+  background: linear-gradient(
+    135deg,
+    rgba(7, 102, 83, 0.1) 0%,
+    rgba(12, 52, 44, 0.1) 50%,
+    rgba(6, 35, 29, 0.1) 100%
+  );
+}
+
+/* Glass Morphism Effects */
+.glass-card {
+  @apply bg-gray-600/2 backdrop-blur-lg;
+  /* background: rgba(255, 255, 255, 0.025); */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modern Shadows */
+.shadow-modern {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-modern-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Health-themed Color Utilities */
+.text-health-primary {
+  color: #e3ef26;
+}
+
+.text-health-secondary {
+  color: #076653;
+}
+
+.text-health-tertiary {
+  color: #0c342c;
+}
+
+.bg-health-primary {
+  background-color: #e3ef26;
+}
+
+.bg-health-secondary {
+  background-color: #076653;
+}
+
+.bg-health-tertiary {
+  background-color: #0c342c;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
