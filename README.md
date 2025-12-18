@@ -1,54 +1,67 @@
 # bmi.calc
 
-This template should help get you started developing with Vue 3 in Vite.
+**bmi.calc** is a simple, focused web application for calculating Body Mass Index (BMI) using the standard **World Health Organization** (WHO) formula.
 
-## Recommended IDE Setup
+The web application allows users to:
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Enter weight in kilograms
+- Enter height in centimeters or meters
+- Instantly calculate BMI
+- See the corresponding BMI category based on WHO classification
 
-## Recommended Browser Setup
+The goal is clarity and correctness rather than feature abundance.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Type Support for `.vue` Imports in TS
+## Formula
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+BMI is calculated using the global standard formula:
 
-## Customize configuration
+&nbsp; &nbsp; &nbsp; $` BMI = weight\ (kg)\ /\ (height\ (m))^2 `$
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**Example:** A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI**
 
-## Project Setup
+> [!NOTE]  
+> Height values entered in centimeters are internally normalized to meters before calculation.
 
-```sh
+---
+
+## Development
+
+### Installation
+
+```bash
 bun install
 ```
 
-### Compile and Hot-Reload for Development
+### For Development
 
-```sh
+```bash
 bun dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build for Production
 
-```sh
+```bash
 bun run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-bun test:unit
-```
+It will automatically runs the tests using `bun test`.
 
 ### Lint with [ESLint](https://eslint.org/)
 
-```sh
+```bash
 bun lint
 ```
+
+### Format using Prettier
+
+```bash
+bun format
+```
+
+---
+
+## License
+
+Licensed under [MIT license](./LICENSE).
