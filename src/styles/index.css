@@ -18,6 +18,10 @@
   transition: all 0.3s ease;
 }
 
+body {
+  @apply bg-[#1B1C1E] duration-0;
+}
+
 /* Gradient Background Utilities */
 .gradient-light {
   background: linear-gradient(to right, #e3ef26 0%, #076653 20%, #0c342c 80%, #e3ef26);
