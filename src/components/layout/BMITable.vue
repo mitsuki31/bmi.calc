@@ -111,14 +111,14 @@
             </th>
           </tr>
           <tr class="border-b bg-white/10 text-gray-900 border-white/20">
-            <th class="px-6 py-3 text-gray-300 text-left font-bold">Category</th>
+            <th class="px-5 sm:px-6 py-3 text-gray-300 text-left font-bold">Category</th>
             <th class="px-6 py-3 text-gray-300 text-left font-bold">BMI Range</th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="category in categories" :key="category" :class="rowClass(category)">
-            <td class="px-6 py-4">
+            <td class="px-4 sm:px-6 py-4">
               <div class="flex items-center gap-3">
                 <div :class="['w-3 h-3 rounded-full', getCategoryDotColor(category)]"></div>
                 <span :class="['font-semibold', getCategoryColor(category)]">

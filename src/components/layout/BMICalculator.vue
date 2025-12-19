@@ -55,13 +55,13 @@
         </div>
 
         <!-- Form -->
-        <div class="space-y-6">
+        <div class="flex flex-col gap-y-4 not-lg:max-w-xl not-lg:mx-auto">
           <!-- Weight -->
-          <div class="space-y-2">
+          <div>
             <label for="in-weight" class="block text-sm font-semibold mb-2 text-gray-300">
               Weight <span class="sr-only">in kilograms</span>
             </label>
-            <div class="flex gap-4 items-center max-w-[85%]">
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-x-4 items-center">
               <input
                 id="in-weight"
                 type="number"
@@ -69,16 +69,16 @@
                 step="0.1"
                 v-model.number="weightKg"
                 :class="[
-                  'flex-1 rounded-xl px-4 py-3 text-lg font-medium backdrop-blur-sm text-gray-300',
+                  'col-span-2 md:col-span-3 rounded-xl px-4 py-3 text-md sm:text-lg font-medium backdrop-blur-sm text-gray-300',
                   'bg-black/20 border-white/10 text-white placeholder-gray-400',
                   'focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-health-primary-dark focus:border-health-primary-dark',
                 ]"
-                placeholder="Enter your weight"
+                placeholder="Enter your weight (kg)"
               />
               <span
                 aria-hidden="true"
                 :class="[
-                  'font-bold px-[1.65rem] py-3 rounded-xl self-center transition-all duration-300',
+                  'font-bold text-md sm:text-lg text-center py-3 rounded-xl self-center transition-all duration-300',
                   'text-gray-200 bg-black/10 border border-health-primary-dark',
                 ]"
               >
@@ -88,12 +88,12 @@
           </div>
 
           <!-- Height -->
-          <div class="space-y-2">
+          <div>
             <label for="in-height" class="block text-sm font-semibold mb-2 text-gray-300">
               Height
               <span class="sr-only">in {{ heightUnit === 'cm' ? 'centimeters' : 'meters' }}</span>
             </label>
-            <div class="flex gap-3 items-center max-w-[85%]">
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-x-4 items-center">
               <input
                 id="in-height"
                 type="number"
@@ -101,17 +101,17 @@
                 step="0.1"
                 v-model.number="heightValue"
                 :class="[
-                  'flex-1 rounded-xl px-4 py-3 text-lg font-medium backdrop-blur-sm',
+                  'col-span-2 md:col-span-3 rounded-xl px-4 py-3 text-md sm:text-lg font-medium backdrop-blur-sm',
                   'border transition-all duration-300',
                   'bg-black/20 border-white/10 text-white placeholder-gray-400',
                   'focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-health-primary-dark focus:border-health-primary-dark',
                 ]"
-                placeholder="Enter your height"
+                :placeholder="`Enter your height (${heightUnit})`"
               />
               <select
                 v-model="heightUnit"
                 :class="[
-                  'rounded-xl px-4 py-3 text-lg font-medium backdrop-blur-sm',
+                  'rounded-xl py-3 text-md sm:text-lg text-center font-medium backdrop-blur-sm',
                   'border transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-offset-1',
                   'bg-health-secondary-dark border-white/10 text-white focus:ring-health-primary focus:border-health-primary',
                 ]"

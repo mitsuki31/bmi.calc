@@ -28,8 +28,8 @@
       class="absolute w-100 h-100 bg-green-300 rounded-full right-0 top-[40%] blur-[10em] opacity-90 -mx-40"
     ></div>
 
-    <div v-if="!isLoading" class="relative z-10">
-      <header class="px-6 pt-8 pb-4">
+    <div v-if="!isLoading" class="relative z-10 px-6 sm:px-10">
+      <header class="pt-8 pb-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
           <div class="flex-1">
             <h1
@@ -51,7 +51,7 @@
         </div>
       </header>
 
-      <section class="min-h-[calc(100vh-8rem)] grid place-items-center px-6 py-8 md:py-0">
+      <section class="min-h-[calc(100vh-8rem)] grid place-items-center py-8 md:py-0">
         <div
           class="w-full max-w-7xl mx-auto animate-slide-up glass-card-dark shadow-modern-lg rounded-2xl p-6 md:p-8"
         >
@@ -59,7 +59,7 @@
         </div>
       </section>
 
-      <footer class="px-6 py-6 text-center">
+      <footer class="py-6 text-center">
         <small class="text-sm font-medium text-gray-400/80">
           &copy; {{ new Date().getFullYear() }} bmi.calc • Your wellness journey starts here
         </small>
