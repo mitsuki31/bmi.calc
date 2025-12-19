@@ -43,7 +43,7 @@ bun dev
 ### Build for Production
 
 ```bash
-bun run build
+BASE_URL="/bmi.calc/" bun run build
 ```
 
 It will automatically runs the tests using `bun test`.
