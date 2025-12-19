@@ -94,8 +94,8 @@ export function calculateBMI(weightKg: number, height: Height): number {
  */
 export function getCategory(bmi: number): Category {
   if (bmi < 18.5) return Category.UNDERWEIGHT;
-  if (bmi <= 24.9) return Category.HEALTHY;
-  if (bmi <= 29.9) return Category.OVERWEIGHT;
+  if (bmi < 25.0) return Category.HEALTHY;
+  if (bmi < 30.0) return Category.OVERWEIGHT;
   return Category.OBESITY;
 }
 

@@ -69,9 +69,9 @@
       case Category.UNDERWEIGHT:
         return { text: '<= 18.4', srOnly: '18.4 or below' };
       case Category.HEALTHY:
-        return { text: '18.5 - 24.9', srOnly: null };
+        return { text: '18.5 - 24.9', srOnly: 'Between range 18.5 and 24.9' };
       case Category.OVERWEIGHT:
-        return { text: '25.0 - 29.9', srOnly: null };
+        return { text: '25.0 - 29.9', srOnly: 'Between range 25.0 and 29.9' };
       case Category.OBESITY:
         return { text: '>= 30.0', srOnly: '30.0 or above' };
       default:
@@ -104,7 +104,7 @@
               colspan="2"
               :class="[
                 'px-6 py-4 text-gray-200 text-center font-bold text-lg',
-                'bg-linear-to-r from-health-secondary-dark via-health-secondary-light via-35% to-health-secondary-dark'
+                'bg-linear-to-r from-health-secondary-dark via-health-secondary-light via-35% to-health-secondary-dark',
               ]"
             >
               BMI Reference Table

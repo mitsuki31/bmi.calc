@@ -16,11 +16,17 @@
   <main class="min-h-screen font-sans relative overflow-hidden">
     <div v-if="isLoading" class="fixed inset-0 z-50 flex items-center justify-center">
       <span class="sr-only">Loading contents...</span>
-      <div class="animate-spin rounded-full h-16 w-16 border-4 border-white/30 border-t-white"></div>
+      <div
+        class="animate-spin rounded-full h-16 w-16 border-4 border-white/30 border-t-white"
+      ></div>
     </div>
 
-    <div class="absolute w-100 h-100 bg-green-300 rounded-full left-0 top-[40%] blur-[10em] opacity-90 -my-10 -mx-40"></div>
-    <div class="absolute w-100 h-100 bg-green-300 rounded-full right-0 top-[40%] blur-[10em] opacity-90 -mx-40"></div>
+    <div
+      class="absolute w-100 h-100 bg-green-300 rounded-full left-0 top-[40%] blur-[10em] opacity-90 -my-10 -mx-40"
+    ></div>
+    <div
+      class="absolute w-100 h-100 bg-green-300 rounded-full right-0 top-[40%] blur-[10em] opacity-90 -mx-40"
+    ></div>
 
     <div v-if="!isLoading" class="relative z-10">
       <header class="px-6 pt-8 pb-4">

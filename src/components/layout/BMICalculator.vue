@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import { calculateBMI, type Height } from '@/core/bmi';
+  import { calculateBMI, Category, getCategory, type Height } from '@/core/bmi';
   import BMITable from './BMITable.vue';
 
   const weightKg = ref<number | null>(null);
@@ -28,10 +28,16 @@
   const bmiCategory = computed(() => {
     if (bmi.value === null) return null;
 
-    if (bmi.value < 18.5) return { name: 'Underweight', color: 'text-blue-500' };
-    if (bmi.value < 25) return { name: 'Healthy', color: 'text-green-500' };
-    if (bmi.value < 30) return { name: 'Overweight', color: 'text-yellow-500' };
-    return { name: 'Obesity', color: 'text-red-500' };
+    switch (getCategory(bmi.value)) {
+      case Category.UNDERWEIGHT:
+        return { name: 'Underweight', color: 'text-blue-500' };
+      case Category.HEALTHY:
+        return { name: 'Healthy', color: 'text-green-500' };
+      case Category.OVERWEIGHT:
+        return { name: 'Overweight', color: 'text-yellow-500' };
+      default:
+        return { name: 'Obesity', color: 'text-red-500' };
+    }
   });
 </script>
 
@@ -131,7 +137,9 @@
               {{ formattedBMI }}
             </p>
             <div v-if="bmiCategory" class="flex items-center justify-center gap-2">
-              <div :class="['w-2 h-2 rounded-full', bmiCategory.color.replace('text-', 'bg-')]"></div>
+              <div
+                :class="['w-2 h-2 rounded-full', bmiCategory.color.replace('text-', 'bg-')]"
+              ></div>
               <p :class="['text-sm font-semibold', bmiCategory.color]">
                 {{ bmiCategory.name }}
               </p>
