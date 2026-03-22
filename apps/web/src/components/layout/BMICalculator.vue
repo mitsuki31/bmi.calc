@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue';
-  import { calculateBMI, Category, getCategory, type Height } from '@/core/bmi';
+  import { calculateBMI, Category, getCategory, type Height } from '@bmi-calc/core';
   import BMITable from './BMITable.vue';
 
   const weightKg = ref<number | null>(null);
