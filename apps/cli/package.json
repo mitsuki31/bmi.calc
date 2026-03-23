@@ -1,0 +1,22 @@
+{
+  "name": "@bmi-calc/cli",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {},
+  "dependencies": {
+    "@bmi-calc/core": "1.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ryuu Mitsuki",
+    "url": "https://github.com/mitsuki31/"
+  },
+  "homepage": "https://github.com/mitsuki31/bmi.calc#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitsuki31/bmi.calc.git",
+    "directory": "apps/cli"
+  }
+}
