@@ -44,5 +44,16 @@
     "vite-plugin-vue-devtools": "^8.0.5",
     "vitest": "^4.0.14",
     "vue-tsc": "^3.1.5"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ryuu Mitsuki",
+    "url": "https://github.com/mitsuki31/"
+  },
+  "homepage": "https://github.com/mitsuki31/bmi.calc#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitsuki31/bmi.calc.git",
+    "directory": "apps/web"
   }
 }
