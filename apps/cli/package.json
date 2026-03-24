@@ -4,6 +4,9 @@
   "description": "A CLI-based application for BMI calculation",
   "type": "module",
   "main": "index.ts",
+  "bin": {
+    "bmi": "./dist/main.js"
+  },
   "scripts": {
     "build": "tsc -b",
     "postbuild": "bun run ./dist/main.js --version"
