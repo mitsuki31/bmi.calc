@@ -11,6 +11,12 @@
     "build": "tsc -b",
     "postbuild": "bun run ./dist/main.js --version"
   },
+  "files": [
+    "./LICENSE",
+    "./README.md",
+    "./package.json",
+    "./dist/"
+  ],
   "dependencies": {
     "@bmi-calc/core": "1.0.0",
     "cli-table3": "^0.6.5",
