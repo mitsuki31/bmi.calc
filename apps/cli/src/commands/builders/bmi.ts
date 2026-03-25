@@ -8,14 +8,14 @@ export function bmiBuilder(yargs: Argv): Argv {
       alias: 'w',
       describe: 'Weight value (kg)',
       demandOption: true,
-      coerce: (value) => validatePositiveNumber(value, 'Weight')
+      coerce: (value) => validatePositiveNumber(value, 'Weight'),
     })
     .option('height', {
       type: 'number',
       alias: 'h',
       describe: 'Height value',
       demandOption: true,
-      coerce: (value) => validatePositiveNumber(value, 'Height')
+      coerce: (value) => validatePositiveNumber(value, 'Height'),
     })
     .option('unit', {
       alias: 'u',
@@ -25,6 +25,6 @@ export function bmiBuilder(yargs: Argv): Argv {
     })
     .example([
       ['$0 --weight 70 --height 170', 'Calculate BMI'],
-      ['$0 -w 70 -h 1.7 -u m', 'Using meters']
+      ['$0 -w 70 -h 1.7 -u m', 'Using meters'],
     ]);
-};
+}

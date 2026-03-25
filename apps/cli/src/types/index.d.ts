@@ -5,5 +5,5 @@
 declare interface BMIHandlerArgv {
   weight: number;
   height: number;
-  unit: "cm" | "m";
+  unit: 'cm' | 'm';
 }

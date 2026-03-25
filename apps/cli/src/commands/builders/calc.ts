@@ -7,21 +7,21 @@ export function calcBuilder(yargs: Argv) {
     .positional('weight', {
       describe: 'Weight value (kg)',
       type: 'number',
-      coerce: (value) => validatePositiveNumber(value, 'Weight')
+      coerce: (value) => validatePositiveNumber(value, 'Weight'),
     })
     .positional('height', {
       describe: 'Height value (use --unit to specify unit)',
       type: 'number',
-      coerce: (value) => validatePositiveNumber(value, 'Height')
+      coerce: (value) => validatePositiveNumber(value, 'Height'),
     })
     .option('unit', {
       alias: 'u',
       describe: 'Height unit (cm or m)',
       choices: ['cm', 'm'],
-      default: 'cm'
+      default: 'cm',
     })
     .example([
       ['$0 calc 70 170', 'Calculate BMI'],
       ['$0 calc 70 1.7 --unit m', 'Using meters'],
-    ])
-};
+    ]);
+}

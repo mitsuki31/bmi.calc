@@ -7,9 +7,7 @@ import mainCommandBuilder from './commands/main.js';
 
 const maxWidth = process.stdout.columns || null;
 
-const yargs = Yargs(hideBin(process.argv))
-  .scriptName(SCRIPT_NAME)
-  .wrap(maxWidth);
+const yargs = Yargs(hideBin(process.argv)).scriptName(SCRIPT_NAME).wrap(maxWidth);
 
 mainCommandBuilder(yargs)
   .recommendCommands()
@@ -27,7 +25,7 @@ mainCommandBuilder(yargs)
         process.exit(0);
       }
       return false;
-    }
+    },
   })
 
   .help()

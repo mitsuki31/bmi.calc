@@ -6,5 +6,5 @@ export default {
   aliases: ['c'],
   describe: 'Calculate BMI directly',
   builder: calcBuilder,
-  handler: calcHandler
+  handler: calcHandler,
 };

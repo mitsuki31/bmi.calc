@@ -6,5 +6,5 @@ export default function builder(yargs: Argv): Argv {
   return yargs
     .usage('$0 --weight <N> --height <N> [--unit <cm|m>]')
     .command(bmiCommand)
-    .command(calcCommand)
+    .command(calcCommand);
 }
