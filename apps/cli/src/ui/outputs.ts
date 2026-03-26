@@ -1,8 +1,7 @@
-import { stripVTControlCharacters } from 'node:util';
 import pc from 'picocolors';
 import Table from 'cli-table3';
 import { Category } from '@bmi-calc/core';
-import { capitalize } from '../utils/index.js';
+import { capitalize, stripANSI } from '../utils/index.js';
 import { createBMICategoriesTable } from './tables.js';
 
 export interface BMIResult {
@@ -35,8 +34,8 @@ export function printBMIResult(result: BMIResult): void {
   );
   let table1 = table.toString();
   const table2 = createBMICategoriesTable(true).toString();
-  const table1_maxLen = stripVTControlCharacters(table1).split('\n')[0].length;
-  const table2_maxLen = stripVTControlCharacters(table2).split('\n')[0].length;
+  const table1_maxLen = stripANSI(table1).split('\n')[0].length;
+  const table2_maxLen = stripANSI(table2).split('\n')[0].length;
   // Add some newlines to table 1
   const remainLines = table2.split('\n').length - table1.split('\n').length;
   if (remainLines > 0) {
