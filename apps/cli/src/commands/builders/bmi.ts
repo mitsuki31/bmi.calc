@@ -23,6 +23,7 @@ export function bmiBuilder(yargs: Argv): Argv {
       default: 'cm',
       describe: 'Height unit (cm or m)',
     })
+    .group(['weight', 'height', 'unit'], 'Command Options:')
     .example([
       ['$0 --weight 70 --height 170', 'Calculate BMI'],
       ['$0 -w 70 -h 1.7 -u m', 'Using meters'],

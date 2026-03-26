@@ -2,42 +2,34 @@
 
 import Yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { APP_NAME, SCRIPT_NAME, VERSION } from './config/constants.js';
+import { APP_NAME, SCRIPT_NAME } from './config/constants.js';
 import mainCommandBuilder from './commands/main.js';
 
 const maxWidth = process.stdout.columns || null;
 
-const yargs = Yargs(hideBin(process.argv)).scriptName(SCRIPT_NAME).wrap(maxWidth);
+function run() {
+  // prettier-ignore
+  let yargs = Yargs(hideBin(process.argv))
+    .scriptName(SCRIPT_NAME)
+    .wrap(maxWidth);
 
-mainCommandBuilder(yargs)
-  .recommendCommands()
+  // Build main commands
+  mainCommandBuilder(yargs)
+    .help()
+    .alias('?', 'help')
+    .recommendCommands()
 
-  // -- Misc options
-  .version(false)
-  .option('version', {
-    alias: ['v'],
-    type: 'boolean',
-    description: 'Show version information',
-    global: true,
-    coerce: (value) => {
-      if (value) {
-        console.log(`${APP_NAME} v${VERSION}`);
-        process.exit(0);
-      }
-      return false;
-    },
-  })
+    // -- Error handling
+    .strict()
+    .showHelpOnFail(false)
+    .fail((message, _error) => {
+      if (message) console.error(message);
+      // ? Do we need to show the error trace on debug mode?
+      // if (error) console.error(error);
+      console.error(`Use \`${APP_NAME} --help\` for usage information`);
+      process.exit(process.exitCode || 1);
+    })
+    .parse();
+}
 
-  .help()
-  .alias('?', 'help')
-
-  // -- Error handling
-  .strict()
-  .showHelpOnFail(false)
-  .fail((message, error) => {
-    if (message) console.error(message);
-    if (error) console.error(error);
-    console.error('See --help for usage information');
-    process.exit(process.exitCode || 1);
-  })
-  .parse();
+run();

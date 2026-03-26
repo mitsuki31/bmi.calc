@@ -20,6 +20,7 @@ export function calcBuilder(yargs: Argv) {
       choices: ['cm', 'm'],
       default: 'cm',
     })
+    .group(['weight', 'height', 'unit'], 'Command Options:')
     .example([
       ['$0 calc 70 170', 'Calculate BMI'],
       ['$0 calc 70 1.7 --unit m', 'Using meters'],
