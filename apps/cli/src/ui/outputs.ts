@@ -1,13 +1,9 @@
+import { inspect } from 'node:util';
 import pc from 'picocolors';
 import Table from 'cli-table3';
 import { Category } from '@bmi-calc/core';
 import { capitalize, stripANSI } from '../utils/index.js';
 import { createBMICategoriesTable } from './tables.js';
-
-export interface BMIResult {
-  bmi: number;
-  category: Category;
-}
 
 /**
  * Prints BMI result in a table with BMI classification table (compact)
@@ -26,7 +22,7 @@ export function printBMIResult(result: BMIResult): void {
     colWidths: [maxLen + 2, 20],
     wordWrap: true,
   });
-  const gapSpace = 10;
+  const gapSpace = 5;
 
   table.push(
     tableTemplate.rows.map((row) => pc.bold(row)),
@@ -44,7 +40,7 @@ export function printBMIResult(result: BMIResult): void {
 
   const titleTexts = [
     [' BMI Result', ' ──────────'],
-    ['BMI Classification', '──────────────────'],
+    [' BMI Classification', ' ──────────────────'],
   ];
   const title = [
     [
@@ -61,6 +57,15 @@ export function printBMIResult(result: BMIResult): void {
   console.log(title.map((row) => row.join(' '.repeat(gapSpace))).join('\n'));
   for (let i = 0; i < table1.split('\n').length; i++) {
     console.log(table1.split('\n')[i] + ' '.repeat(gapSpace) + table2.split('\n')[i]);
+  }
+}
+
+export function printBMIResultAsJSON(result: BMIResult, colors?: boolean): void {
+  const jsonResult = formatToJSON(result);
+  if (colors) {
+    console.log(pc.green(jsonResult));
+  } else {
+    console.log(jsonResult);
   }
 }
 
@@ -118,4 +123,22 @@ export function formatCategory(category: string): string {
     default:
       return category;
   }
+}
+
+/**
+ * Formats BMI result to JSON
+ * @param result - BMI result
+ * @returns Formatted BMI result
+ */
+export function formatToJSON(result: BMIResult): string {
+  return JSON.stringify(
+    {
+      bmi: result.bmi.toFixed(2),
+      category: capitalize(result.category) as Capitalize<Category>,
+      // TODO: Add range for the category
+      // range: ...
+    } satisfies BMIResultJSON,
+    null,
+    2,
+  );
 }
