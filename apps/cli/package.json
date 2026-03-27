@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "A CLI-based application for BMI calculation",
   "type": "module",
-  "main": "index.ts",
   "bin": {
-    "bmi": "./dist/main.js"
+    "bmi": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc -b",
-    "postbuild": "bun run ./dist/main.js --version"
+    "postbuild": "bun run ./dist/cli.js --version",
+    "prepack": "bun run build && cp ../../LICENSE .",
+    "postpack": "rm ./LICENSE"
   },
   "files": [
     "./LICENSE",
