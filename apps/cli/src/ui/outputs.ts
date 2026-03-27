@@ -22,6 +22,7 @@ export function printBMIResult(result: BMIResult): void {
     colWidths: [maxLen + 2, 20],
     wordWrap: true,
   });
+  const terminalWidth = process.stdout.columns;
   const gapSpace = 5;
 
   table.push(
@@ -53,10 +54,19 @@ export function printBMIResult(result: BMIResult): void {
     ],
   ];
 
+  const shouldGotoNewline = terminalWidth < table1_maxLen + table2_maxLen + gapSpace;
+
   process.stdout.write('\n');
-  console.log(title.map((row) => row.join(' '.repeat(gapSpace))).join('\n'));
-  for (let i = 0; i < table1.split('\n').length; i++) {
-    console.log(table1.split('\n')[i] + ' '.repeat(gapSpace) + table2.split('\n')[i]);
+  if (!shouldGotoNewline) {
+    console.log(title.map((row) => row.join(' '.repeat(gapSpace))).join('\n'));
+    for (let i = 0; i < table1.split('\n').length; i++) {
+      console.log(table1.split('\n')[i] + ' '.repeat(gapSpace) + table2.split('\n')[i]);
+    }
+  } else {
+    console.log(`${title[0][0]}\n${title[1][0].trimEnd()}`);
+    console.log(table1.trimEnd() + '\n');
+    console.log(`${title[0][1]}\n${title[1][1].trimEnd()}`);
+    console.log(table2);
   }
 }
 
