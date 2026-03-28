@@ -1,7 +1,7 @@
 {
   "name": "@bmi-calc/core",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Core module for BMI Calculator, it provides simple BMI calculation and analysis",
   "type": "module",
   "main": "./src/index.ts",
