@@ -7,6 +7,10 @@
     "bmi": "./dist/cli.js"
   },
   "scripts": {
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix --cache",
+    "type-check": "tsc --noEmit",
+    "prebuild": "bun run lint:fix",
     "build": "tsc -b",
     "postbuild": "bun run ./dist/cli.js --version",
     "prepack": "bun run build && cp ../../LICENSE .",
@@ -28,10 +32,12 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@tsconfig/node14": "^14.1.8",
     "@types/node": "^25.5.0",
     "@types/yargs": "^17.0.35",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.57.2"
   },
   "license": "MIT",
   "author": {

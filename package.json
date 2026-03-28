@@ -6,6 +6,7 @@
     "@web": "bun run --filter @bmi-calc/web",
     "@cli": "bun run --filter @bmi-calc/cli",
     "@all": "bun run --filter '!@bmi-calc/core'",
+    "lint": "bun @all lint",
     "format": "prettier --write --experimental-cli apps/cli apps/web"
   },
   "workspaces": [
@@ -23,6 +24,7 @@
     "url": "https://github.com/mitsuki31/bmi.calc.git"
   },
   "devDependencies": {
+    "eslint": "^10.1.0",
     "prettier": "^3.8.1"
   }
 }
