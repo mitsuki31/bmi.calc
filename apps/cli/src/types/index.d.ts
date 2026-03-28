@@ -2,6 +2,10 @@
 // Project: bmi-calc
 // Definitions by: Ryuu Mitsuki (https://github.com/mitsuki31)
 
+/* eslint-disable @typescript-eslint/consistent-type-imports */
+// In this file, we need to imports directly on the type declaration
+// because of the way how this module works
+
 declare interface BMIHandlerArgv {
   // --weight
   w: number;

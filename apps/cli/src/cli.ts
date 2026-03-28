@@ -7,14 +7,14 @@ import mainCommandBuilder from './commands/main.js';
 
 const maxWidth = process.stdout.columns || null;
 
-function run() {
+async function run() {
   // prettier-ignore
-  let yargs = Yargs(hideBin(process.argv))
+  const yargs = Yargs(hideBin(process.argv))
     .scriptName(SCRIPT_NAME)
     .wrap(maxWidth);
 
   // Build main commands
-  mainCommandBuilder(yargs)
+  await mainCommandBuilder(yargs)
     .help()
     .alias('?', 'help')
     .recommendCommands()
@@ -32,4 +32,4 @@ function run() {
     .parse();
 }
 
-run();
+void run();

@@ -1,6 +1,5 @@
-import { inspect } from 'node:util';
-import pc from 'picocolors';
 import Table from 'cli-table3';
+import pc from 'picocolors';
 import { Category } from '@bmi-calc/core';
 import { capitalize, stripANSI } from '../utils/index.js';
 import { createBMICategoriesTable } from './tables.js';
