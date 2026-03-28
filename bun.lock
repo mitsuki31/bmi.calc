@@ -10,12 +10,12 @@
     },
     "apps/cli": {
       "name": "@bmi-calc/cli",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "bin": {
-        "bmi": "./dist/main.js",
+        "bmi": "./dist/cli.js",
       },
       "dependencies": {
-        "@bmi-calc/core": "1.0.0",
+        "@bmi-calc/core": "2.0.0",
         "cli-table3": "^0.6.5",
         "picocolors": "^1.1.1",
         "yargs": "^18.0.0",
@@ -29,9 +29,9 @@
     },
     "apps/web": {
       "name": "@bmi-calc/web",
-      "version": "1.0.1",
+      "version": "2.0.0",
       "dependencies": {
-        "@bmi-calc/core": "1.0.0",
+        "@bmi-calc/core": "2.0.0",
         "vue": "^3.5.25",
       },
       "devDependencies": {
@@ -60,7 +60,7 @@
     },
     "packages/core": {
       "name": "@bmi-calc/core",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "devDependencies": {
         "@tsconfig/node14": "^14.1.8",
         "@types/node": "^25.5.0",

@@ -9,7 +9,6 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
-    "postbuild": "bun test",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -17,7 +16,7 @@
     "lint": "eslint . --fix --cache"
   },
   "dependencies": {
-    "@bmi-calc/core": "1.0.0",
+    "@bmi-calc/core": "2.0.0",
     "vue": "^3.5.25"
   },
   "devDependencies": {

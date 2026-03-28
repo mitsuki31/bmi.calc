@@ -18,8 +18,11 @@
     "./package.json",
     "./dist/"
   ],
+  "bundleDependencies": [
+    "@bmi-calc/core"
+  ],
   "dependencies": {
-    "@bmi-calc/core": "1.0.0",
+    "@bmi-calc/core": "2.0.0",
     "cli-table3": "^0.6.5",
     "picocolors": "^1.1.1",
     "yargs": "^18.0.0"
