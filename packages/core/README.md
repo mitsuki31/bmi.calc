@@ -5,15 +5,18 @@ This package contains pure logic without UI or runtime dependencies.
 
 It is designed to be reusable across:
 
-- Web application
-- CLI application
+- Web application ([`@bmi-calc/web`](https://github.com/mitsuki31/bmi.calc/tree/master/apps/web))
+- CLI application ([`@bmi-calc/cli`](https://github.com/mitsuki31/bmi.calc/tree/master/apps/cli))
+
+> [!NOTE]\
+> This is a **part of [bmi.calc](https://github.com/mitsuki31/bmi.calc) monorepo.**
 
 ## Features
 
 - BMI calculation
 - BMI classification
 - Unit conversion support
-- Zero UI dependencies
+- Zero dependencies (except dev dependencies)
 - Fully testable pure functions
 
 ## Usage
@@ -92,16 +95,13 @@ This package follows strict separation rules:
 
 ## Testing
 
-Run using [Bun](https://bun.sh/) test runner:
+> [!TIP]\
+> If you're inside the `/packages/core` directory, simply replace the `bun @core` with `bun run`.
+
+Run using [Vitest](https://vitest.dev/) (need to run from workspace root):
 
 ```bash
-bun test
-```
-
-Run using [Vitest](https://vitest.dev/):
-
-```bash
-bun run -b test
+bun @core test
 ```
 
 ## License

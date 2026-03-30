@@ -8,9 +8,11 @@ Built with:
 - Vite
 - TailwindCSS
 - TypeScript
-- Vitest
 
 This package provides an interactive UI that consumes the core calculation engine.
+
+> [!NOTE]\
+> This is a **part of [bmi.calc](https://github.com/mitsuki31/bmi.calc) monorepo.**
 
 ## Features
 
@@ -22,6 +24,9 @@ This package provides an interactive UI that consumes the core calculation engin
 
 ## Development
 
+> [!TIP]\
+> If you're inside the `/apps/web` directory, simply replace the `bun @web` with `bun run`.
+
 Install dependencies from workspace root:
 
 ```bash
@@ -31,24 +36,24 @@ bun install
 Run development server:
 
 ```bash
-bun run -b dev
+bun @web dev
 ```
 
 Build:
 
 ```bash
-bun run -b build
+bun @web build
 ```
 
 Preview:
 
 ```bash
-bun run -b preview
+bun @web preview
 ```
 
 ## Architecture
 
-This app depends on [`@bmi-calc/core`](../../packages/core)
+This app depends on [`@bmi-calc/core`](https://github.com/mitsuki31/bmi.calc/tree/master/packages/core)
 
 All calculation logic is delegated to the core package.
 
@@ -81,20 +86,6 @@ web/
 ├── tsconfig.json
 ├── package.json
 └── README.md
-```
-
-## Testing
-
-Run using [Bun](https://bun.sh/) test runner:
-
-```bash
-bun test
-```
-
-Run using [Vitest](https://vitest.dev/):
-
-```bash
-bun run -b test
 ```
 
 ## License

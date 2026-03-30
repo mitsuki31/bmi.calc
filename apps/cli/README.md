@@ -99,6 +99,9 @@ Output:
 
 ## Development
 
+> [!TIP]\
+> If you're inside the `/apps/cli` directory, simply replace the `bun @cli` with `bun run`.
+
 Install dependencies from workspace root:
 
 ```bash
