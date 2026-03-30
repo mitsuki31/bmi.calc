@@ -15,10 +15,28 @@ BMI is calculated using the global standard formula:
 &nbsp; &nbsp; &nbsp; $` BMI = weight\ (kg)\ /\ (height\ (m))^2 `$
 
 **Example:**\
-A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI**
+A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI** (healthy weight)
 
 > [!NOTE]  
 > Height values entered in centimeters are internally normalized to meters before calculation.
+
+## Body Mass Index Categories
+
+| Category    | BMI Range   |
+| ----------- | ----------- |
+| Underweight | < 18.5      |
+| Healthy     | 18.5 - 24.9 |
+| Overweight  | 25 - 29.9   |
+| Obesity     | ≥ 30        |
+
+> [!TIP]\
+> In web app, the categories are displayed as sidebar (for desktop).
+>
+> In CLI app, the categories are displayed as table with colored texts and can be shown using command as below:
+>
+> ```bash
+> bmi categories
+> ```
 
 ---
 
@@ -35,7 +53,7 @@ A simple browser-based BMI calculator that allows users to:
 
 For more details about the web app, [see here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/web).
 
-### Command Line App
+### Command-Line App
 
 A lightweight command-line tool designed for quick BMI calculations and scripting:
 
@@ -69,14 +87,14 @@ bmi -w 80 -h 175
 
  BMI Classification
  ──────────────────
-┌─────────────┬────────────────────┐
-│ Category    │ BMI Range          │
-├─────────────┼────────────────────┤
-│ Underweight │ < 18.5             │
-│ Healthy     │ 18.5 - 24.9        │
-│ Overweight  │ 25 - 29.9          │
-│ Obesity     │ ≥ 30               │
-└─────────────┴────────────────────┘
+┌──────────────┬────────────────────┐
+│ Category     │ BMI Range          │
+├──────────────┼────────────────────┤
+│ Underweight  │ < 18.5             │
+│ Healthy      │ 18.5 - 24.9        │
+│ *Overweight  │ 25 - 29.9          │
+│ Obesity      │ ≥ 30               │
+└──────────────┴────────────────────┘
 ```
 
 ---

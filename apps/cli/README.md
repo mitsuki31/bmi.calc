@@ -24,6 +24,7 @@ Provides a fast way to compute BMI directly from the terminal using the shared c
 ```bash
 bmi [-w <weight>] [-h <height>] [options]
 bmi calc <weight> <height> [options]
+bmi categories
 ```
 
 Example:
@@ -38,6 +39,13 @@ Alternative one, but more simpler way to write it:
 bmi calc 70 170
 ```
 
+> [!TIP]\
+> There's one more to write it even more and more simpler:
+>
+> ```bash
+> bmi c 70 170
+> ```
+
 Output:
 
 ```
@@ -51,14 +59,14 @@ Output:
 
  BMI Classification
  ────────────────────
-┌─────────────┬────────────────────┐
-│ Category    │ BMI Range          │
-├─────────────┼────────────────────┤
-│ Underweight │ < 18.5             │
-│ Healthy     │ 18.5 - 24.9        │
-│ Overweight  │ 25 - 29.9          │
-│ Obesity     │ ≥ 30               │
-└─────────────┴────────────────────┘
+┌──────────────┬────────────────────┐
+│ Category     │ BMI Range          │
+├──────────────┼────────────────────┤
+│ Underweight  │ < 18.5             │
+│ *Healthy     │ 18.5 - 24.9        │
+│ Overweight   │ 25 - 29.9          │
+│ Obesity      │ ≥ 30               │
+└──────────────┴────────────────────┘
 ```
 
 <br />
@@ -94,6 +102,37 @@ Output:
 ```
 
 </details>
+
+### Categories
+
+```bash
+bmi categories
+```
+
+> [!TIP]\
+> Aliases for `categories`: `category`, `class`
+>
+> ```bash
+> bmi <categories|category|class>
+> ```
+
+Output:
+
+```
+ BMI Classification
+ ──────────────────
+┌─────────────┬────────────────────┐
+│ Category    │ BMI Range          │
+├─────────────┼────────────────────┤
+│ Underweight │ < 18.5             │
+├─────────────┼────────────────────┤
+│ Healthy     │ 18.5 - 24.9        │
+├─────────────┼────────────────────┤
+│ Overweight  │ 25 - 29.9          │
+├─────────────┼────────────────────┤
+│ Obesity     │ ≥ 30               │
+└─────────────┴────────────────────┘
+```
 
 ---
 
