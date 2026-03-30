@@ -1,0 +1,56 @@
+{
+  "name": "@bmi-calc/cli",
+  "version": "2.0.0",
+  "description": "A CLI-based application for BMI calculation",
+  "type": "module",
+  "bin": {
+    "bmi": "./dist/cli.js"
+  },
+  "scripts": {
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --fix --cache",
+    "type-check": "tsc --noEmit",
+    "prebuild": "bun run lint:fix",
+    "build": "tsc -b",
+    "postbuild": "bun run ./dist/cli.js --version",
+    "prepack": "bun run build && cp ../../LICENSE .",
+    "postpack": "rm ./LICENSE"
+  },
+  "files": [
+    "./LICENSE",
+    "./README.md",
+    "./package.json",
+    "./dist/"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "bundleDependencies": [
+    "@bmi-calc/core"
+  ],
+  "dependencies": {
+    "@bmi-calc/core": "2.0.0",
+    "cli-table3": "^0.6.5",
+    "picocolors": "^1.1.1",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@tsconfig/node20": "^20.1.9",
+    "@types/node": "^25.5.0",
+    "@types/yargs": "^17.0.35",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.57.2"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ryuu Mitsuki",
+    "url": "https://github.com/mitsuki31/"
+  },
+  "homepage": "https://github.com/mitsuki31/bmi.calc#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitsuki31/bmi.calc.git",
+    "directory": "apps/cli"
+  }
+}

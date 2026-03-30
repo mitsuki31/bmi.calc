@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { Category, getCategory } from '@/core/bmi';
+  import { Category, getCategory } from '@bmi-calc/core';
 
   const props = defineProps<{
     bmi?: number | null;

@@ -1,0 +1,38 @@
+{
+  "name": "@bmi-calc/core",
+  "version": "2.0.0",
+  "description": "Core module for BMI Calculator, it provides simple BMI calculation and analysis",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist/"],
+  "scripts": {
+    "build": "tsc --build",
+    "postbuild": "bun run -b test",
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^14.1.8",
+    "@types/node": "^25.5.0",
+    "typescript": "5.9.3",
+    "vitest": "^4.1.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ryuu Mitsuki",
+    "url": "https://github.com/mitsuki31/"
+  },
+  "homepage": "https://github.com/mitsuki31/bmi.calc#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitsuki31/bmi.calc.git",
+    "directory": "packages/core"
+  }
+}

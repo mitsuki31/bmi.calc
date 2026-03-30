@@ -1,0 +1,16 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["src/**/__tests__/*"],
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "types": ["node"],
+    "removeComments": false,
+    "sourceMap": false,
+    "declaration": true,
+    "declarationMap": false,
+  }
+}
