@@ -1,6 +1,7 @@
 import type { Argv, Options } from 'yargs';
 import bmiCommand from './bmi.js';
 import calcCommand from './calc.js';
+import categoriesCommand from './categories.js';
 import globalOptions from './options/global.js';
 import miscOptions from './options/misc.js';
 
@@ -19,6 +20,7 @@ export default function builder(yargs: Argv): Argv {
 
       .command(bmiCommand)
       .command(calcCommand)
+      .command(categoriesCommand)
       .options(globalOptions)
       .group(Object.keys(globalOptions), 'Global Options:'),
     miscOptions,
