@@ -4,6 +4,8 @@
 
 The project focuses on correctness, simplicity, and reusable core calculation logic shared across applications.
 
+💚 **[Calculate your BMI now!](https://mitsuki31.github.io/bmi.calc/)**
+
 ---
 
 ## Body Mass Index Formula
@@ -20,7 +22,7 @@ A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI**
 
 ---
 
-## Applications
+## Featured Applications
 
 ### Web App
 
@@ -169,10 +171,10 @@ BASE_URL="/bmi.calc/" bun @web build
 bun @all build
 ```
 
-### Testing Core
+### Testing
 
 ```bash
-bun test
+bun @all test
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
