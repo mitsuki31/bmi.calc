@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { BMICalculationError, calculateBMI, Category, getCategory } from '../bmi.js';
+import { calculateBMI, Category, getCategory } from '../bmi.js';
+import { BMICalculationError } from '../error.js';
 
 describe('calculateBMI', function () {
   it('calculates BMI using meters', function () {
