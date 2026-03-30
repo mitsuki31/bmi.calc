@@ -1,4 +1,4 @@
-import pkg from '../../package.json';
+import pkg from '../../package.json' with { type: 'json' };
 
 export const APP_NAME = 'bmi-calc';
 export const SCRIPT_NAME = 'bmi';

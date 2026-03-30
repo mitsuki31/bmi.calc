@@ -1,24 +1,20 @@
 {
   "name": "@bmi-calc/core",
-  "private": true,
   "version": "2.0.0",
   "description": "Core module for BMI Calculator, it provides simple BMI calculation and analysis",
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "files": [
-    "LICENSE",
-    "README.md",
-    "package.json",
-    "dist/"
-  ],
+  "files": ["dist/"],
   "scripts": {
-    "build": "tsc --build && rm -rf dist",
-    "build:keep": "tsc --build",
+    "build": "tsc --build",
     "postbuild": "bun run -b test",
-    "postbuild:keep": "bun run -b test",
     "test": "vitest --run",
     "test:watch": "vitest"
   },
