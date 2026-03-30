@@ -14,19 +14,22 @@ const categories = {
   // [Category.OBESITY_CLASS_III]: { range: '≥ 40', color: pc.red }
 };
 
-export const createBMICategoriesTable = (compact?: boolean): Table.Table => {
+export const createBMICategoriesTable = (compact?: boolean, highlightType?: Category): Table.Table => {
   const maxLen = Object.keys(categories).reduce((max, key) => {
     return Math.max(max, categories[key as keyof typeof categories].range.length);
   }, 0);
   const table = new Table({
     head: ['Category', 'BMI Range'],
-    colWidths: [maxLen + 2, 20],
+    colWidths: [maxLen + 2 + (!highlightType ? 0 : 1), 20],
     style: { head: ['bold'], compact },
   });
   table.push(
     ...Object.keys(categories).map((key) => {
       const category = categories[key as keyof typeof categories];
-      return [category.color(capitalize(key)), pc.italic(category.range)];
+      return [
+        (highlightType === key ? '*' : '') + category.color(capitalize(key)),
+        pc.italic(category.range)
+      ];
     }),
   );
 
