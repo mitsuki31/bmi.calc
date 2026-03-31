@@ -7,14 +7,14 @@ import mainCommandBuilder from './commands/main.js';
 
 const maxWidth = process.stdout.columns || null;
 
-async function run() {
+function run() {
   // prettier-ignore
   const yargs = Yargs(hideBin(process.argv))
     .scriptName(SCRIPT_NAME)
     .wrap(maxWidth);
 
   // Build main commands
-  await mainCommandBuilder(yargs)
+  mainCommandBuilder(yargs)
     .help()
     .alias('?', 'help')
     .recommendCommands()
@@ -29,7 +29,7 @@ async function run() {
       console.error(`Use \`${APP_NAME} --help\` for usage information`);
       process.exit(process.exitCode || 1);
     })
-    .parse();
+    .parseSync();
 }
 
 void run();

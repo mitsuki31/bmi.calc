@@ -29,7 +29,7 @@ export function printBMIResult(result: BMIResult): void {
     tableTemplate.cols,
   );
   let table1 = table.toString();
-  const table2 = createBMICategoriesTable(true).toString();
+  const table2 = createBMICategoriesTable(true, result.category).toString();
   const table1_maxLen = stripANSI(table1).split('\n')[0].length;
   const table2_maxLen = stripANSI(table2).split('\n')[0].length;
   // Add some newlines to table 1
