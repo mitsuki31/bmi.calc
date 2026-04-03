@@ -14,7 +14,7 @@ BMI is calculated using the global standard formula:
 
 &nbsp; &nbsp; &nbsp; $` BMI = weight\ (kg)\ /\ (height\ (m))^2 `$
 
-**Example:**\
+**Example:**  
 A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI** (healthy weight)
 
 > [!NOTE]  
@@ -29,7 +29,7 @@ A 60 kg person with height 165 cm (1.65 m) will resulting: **22.04 BMI** (health
 | Overweight  | 25 - 29.9   |
 | Obesity     | ≥ 30        |
 
-> [!TIP]\
+> [!TIP]  
 > In web app, the categories are displayed as sidebar (for desktop).
 >
 > In CLI app, the categories are displayed as table with colored texts and can be shown using command as below:
@@ -118,35 +118,25 @@ bmi calc 80 175 --json
 
 ---
 
-## Project Structure
+## Project Architecture
 
 ```
-.
-├── apps/  --> applications
-│   │
-│   ├── cli/  --> CLI-based app
-│   │   ├── ...
-│   │   ├── package.json
-│   │   ├── README.md
-│   │   └── tsconfig.json
-│   │
-│   └── web/  --> web-based app
-│       ├── ...
-│       ├── package.json
-│       ├── README.md
-│       └── tsconfig.json
-│
-├── packages/
-│   └── core/  --> core calculation logic
-│       ├── ...
-│       ├── package.json
-│       ├── README.md
-│       └── tsconfig.json
-│
-├── LICENSE
-├── package.json
-└── README.md
+                                     ┌─ CLI-based App
+                                     │
+              ┌─ Logic Core          │
+              │                  <apps/cli>
+              │          ┌────  @bmi-calc/cli
+       @bmi-calc/core  ──┤
+       <packages/core>   └────  @bmi-calc/web
+                                 <apps/web>
+                                     │
+                                     │
+                      Web-based App ─┘
 ```
+
+- [**@bmi-calc/core**][@bmi-calc/core] 🡢 Not an app, but core library. Contains logic core for these two applications.
+- [**@bmi-calc/cli**][@bmi-calc/cli] 🡢 A simple command-line interface app to calculate BMI.
+- [**@bmi-calc/web**][@bmi-calc/web] 🡢 A web application provides BMI calculation with ease and fast UI response.
 
 ---
 
@@ -180,7 +170,7 @@ Build for Production:
 BASE_URL="/bmi.calc/" bun @web build
 ```
 
-> [!CAUTION]\
+> [!CAUTION]  
 > Specify the `BASE_URL` only if deploying the web app to a subpath (e.g., GitHub Pages).
 
 #### Build All at Once
@@ -188,6 +178,59 @@ BASE_URL="/bmi.calc/" bun @web build
 ```bash
 bun @all build
 ```
+
+### Packing Applications
+
+> [!IMPORTANT]  
+> The packaging process only applies to [`@bmi-calc/cli`][@bmi-calc/cli]. The web application ([`@bmi-calc/web`][@bmi-calc/web]) is built and bundled separately using **Vue** and **Vite**.
+
+> [!CAUTION]  
+> **The script file is still experimental.**
+
+The packaging process is not equivalent to a standard `bun pm pack` execution due to the project’s architecture and custom bundling requirements. Use the provided script instead:
+
+```bash
+bun run pack cli --verbose
+```
+
+Or:
+
+```bash
+bash ./scripts/pack.sh cli --verbose
+```
+
+> [!TIP]  
+> **Recommended** to always run the script with `--verbose` flag to see what the script is doing.
+>
+> If you want to know what commands are executed inside the script, you can set `XTRACE=1` before the command.  
+> For instance:
+>
+> ```bash
+> XTRACE=1 bun run pack cli --verbose
+> ```
+
+<details>
+<summary>
+  <h4>Why not using <code>bun pm pack</code> or <code>npm pack</code> directly?</h4>
+</summary>
+
+In this project architecture, the CLI depends on a locally bundled `core` package instead of pulling it from a registry. Because of this, the normal packing mechanisms (`bun pm pack` or `npm pack`) are not suitable since they are designed for publishing workflows, not for selective in-repo packaging.
+
+The goal of this step is to replicate the behavior of the `files` field in `package.json`, but in reverse: instead of defining what to include during publish time, we remove everything except the required runtime assets. This ensures the bundled core remains minimal while still being fully functional.
+
+This approach is necessary because:
+
+- The core package is consumed as a local dependency during build time
+- We only need compiled assets (such as `dist/`, type definitions, and essential metadata)
+- Development files (tests, configs, sources, temporary build artifacts) would unnecessarily increase bundle size
+- `bun pm pack` / `npm pack` would require creating an intermediate tarball, which does not fit this workflow
+- The project uses a custom packaging pipeline rather than a registry-based distribution model
+
+The cleanup logic will restores the `core` package to its original state. Any stashed changes will be applied back after the tarball is created.
+
+</details>
+
+---
 
 ### Testing
 
@@ -201,7 +244,7 @@ bun @all test
 bun @all lint
 ```
 
-### Format using Prettier
+### Format using [Prettier](https://prettier.io/)
 
 ```bash
 bun format
@@ -212,3 +255,9 @@ bun format
 ## License
 
 Licensed under [MIT license](./LICENSE).
+
+<!-- Links -->
+
+[@bmi-calc/core]: https://github.com/mitsuki31/bmi.calc/tree/master/packages/core
+[@bmi-calc/cli]: https://github.com/mitsuki31/bmi.calc/tree/master/apps/cli
+[@bmi-calc/web]: https://github.com/mitsuki31/bmi.calc/tree/master/apps/web

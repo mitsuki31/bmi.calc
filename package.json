@@ -8,7 +8,8 @@
     "@core": "bun run --filter @bmi-calc/core",
     "@all": "bun run --filter '*'",
     "lint": "bun @all lint",
-    "format": "prettier --write --experimental-cli apps/cli apps/web"
+    "format": "prettier --write --experimental-cli apps/cli apps/web",
+    "pack": "bash scripts/pack.sh"
   },
   "workspaces": [
     "./apps/*",

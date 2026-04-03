@@ -153,6 +153,34 @@ Build from workspace root:
 bun @cli build
 ```
 
+### Packing
+
+> [!CAUTION]  
+> **The script file is still experimental.**
+
+> [!WARNING]  
+> Packaging and bundling this package must be run from the workspace root. Otherwise an error will occur.
+
+```bash
+bun run pack cli --verbose
+```
+
+Or:
+
+```bash
+bash ./scripts/pack.sh cli --verbose
+```
+
+> [!TIP]  
+> **Recommended** to always run the script with `--verbose` flag to see what the script is doing.
+>
+> If you want to know what commands are executed inside the script, you can set `XTRACE=1` before the command.  
+> For instance:
+>
+> ```bash
+> XTRACE=1 bun run pack cli --verbose
+> ```
+
 ## Package Structure
 
 ```
