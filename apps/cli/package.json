@@ -12,22 +12,13 @@
     "type-check": "tsc --noEmit",
     "prebuild": "bun run lint:fix",
     "build": "tsc -b",
-    "postbuild": "bun run ./dist/cli.js --version",
-    "prepack": "bun run build && cp ../../LICENSE .",
-    "postpack": "rm ./LICENSE"
+    "postbuild": "bun run ./dist/cli.js --version"
   },
-  "files": [
-    "./LICENSE",
-    "./README.md",
-    "./package.json",
-    "./dist/"
-  ],
   "engines": {
     "node": ">=20"
   },
-  "bundleDependencies": [
-    "@bmi-calc/core"
-  ],
+  "files": ["dist/"],
+  "bundleDependencies": ["@bmi-calc/core"],
   "dependencies": {
     "@bmi-calc/core": "2.0.0",
     "cli-table3": "^0.6.5",
