@@ -1,7 +1,7 @@
 {
   "name": "@bmi-calc/core",
-  "version": "2.0.0-beta",
-  "description": "Core module for BMI Calculator, it provides simple BMI calculation and analysis",
+  "version": "2.0.0",
+  "description": "Core module for bmi.calc, it provides simple BMI calculation and analysis",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

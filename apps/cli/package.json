@@ -1,6 +1,6 @@
 {
   "name": "@bmi-calc/cli",
-  "version": "2.0.0-beta",
+  "version": "2.0.0",
   "description": "A CLI-based application for BMI calculation",
   "type": "module",
   "bin": {
@@ -20,7 +20,7 @@
   "files": ["dist/"],
   "bundleDependencies": ["@bmi-calc/core"],
   "dependencies": {
-    "@bmi-calc/core": "workspace:*",
+    "@bmi-calc/core": "2.0.0",
     "cli-table3": "^0.6.5",
     "picocolors": "^1.1.1",
     "yargs": "^18.0.0"
