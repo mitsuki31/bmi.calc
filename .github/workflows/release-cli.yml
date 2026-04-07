@@ -42,19 +42,24 @@ jobs:
         run: bun run pack cli --verbose --filename "${{ env.FILENAME }}"
 
       - name: Verify tarball package
+        id: verify-tarball
         run: |
-          ls -lh *.tgz
+          set -euo pipefail
+          filename="$(ls *.tgz)"
+          ls -lh "$filename"
           echo ---
-          tar -tvf "${{ env.FILENAME }}"
+          tar -tvf "$filename"
+          echo "TARBALL_NAME=$filename" >> "$GITHUB_OUTPUT"
+          unset filename
 
       - name: Generate SHA256 checksum
         run: |
-          sha256sum *.tgz > checksums.txt
+          sha256sum "${{ steps.verify-tarball.outputs.TARBALL_NAME }}" > checksums.txt
           cat checksums.txt
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ${{ env.FILENAME }}
+            ${{ steps.verify-tarball.outputs.TARBALL_NAME }}
             checksums.txt
