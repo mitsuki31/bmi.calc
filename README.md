@@ -51,7 +51,7 @@ A simple browser-based BMI calculator that allows users to:
 - Instantly calculate BMI
 - View BMI categories based on WHO classification
 
-For more details about the web app, [see here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/web).
+For more details about the web app, [visit here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/web).
 
 ### Command-Line App
 
@@ -63,7 +63,9 @@ A lightweight command-line tool designed for quick BMI calculations and scriptin
 - JSON output support for automation
 - View BMI categories based on WHO classification
 
-For more details about the CLI app, [see here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/cli).
+For more details about the CLI app, [visit here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/cli).
+
+Need installation guide? [Read here](https://github.com/mitsuki31/bmi.calc/tree/master/apps/cli#installation).
 
 <details>
 <summary><strong>See examples</strong></summary>

@@ -19,6 +19,22 @@ Provides a fast way to compute BMI directly from the terminal using the shared c
 - JSON output mode for automation
 - Uses shared core calculation logic
 
+## Installation
+
+- Download the tarball (`bmi-calc@<version>.tgz`) from [GitHub Releases](https://github.com/mitsuki31/bmi.calc/releases/latest).
+- Use `bun` or `npm` to install it globally.
+  ```bash
+  bun add -g bmi-calc@<version>.tgz
+  ```
+  or
+  ```bash
+  npm i -g bmi-calc@<version>.tgz
+  ```
+- Run `bmi` command.
+  ```bash
+  bmi --help
+  ```
+
 ## Usage
 
 ```bash
